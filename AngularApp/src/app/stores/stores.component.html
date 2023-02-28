@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content white-text">
+          <div class="row">
+            <div class="col s5">
+              <form #storesForm="ngForm" (ngSubmit)="onSubmit(storesForm)">
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="storesService.selectedStores._id">
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="name" #name="ngModel" [(ngModel)]="storesService.selectedStores.name" placeholder="Enter full name" required>
+                    <label>Name :
+                      <label class="red-text">*</label>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="type" #name="ngModel" [(ngModel)]="storesService.selectedStores.type" placeholder="Eg : Grocery, Clothing">
+                    <label>Type :</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="city" #name="ngModel" [(ngModel)]="storesService.selectedStores.city" placeholder="Enter location">
+                    <label>City :</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input type="text" name="phone" #name="ngModel" [(ngModel)]="storesService.selectedStores.phone" placeholder="Phone Number">
+                    <label>Phone :</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <button class="btn btn-custom right" type="button" (click)="resetForm(storesForm)">Reset</button>
+                    <button class="btn btn-custom right" type="submit" [disabled]="!storesForm.valid">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col s7">
+                <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>City</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let store of storesService.stores">
+                      <td>{{store.name}}</td>
+                      <td>{{store.type}}</td>
+                      <td>{{store.city}}</td>
+                      <td>
+                          <a class="action-btn" (click)="onEdit(store)">
+                            <i class="material-icons">edit</i>
+                          </a>
+                          <a class="action-btn" (click)="onDelete(store._id,storesForm)">
+                            <i class="material-icons">delete</i>
+                          </a>
+                        </td>
+                    </tr>
+                  </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
