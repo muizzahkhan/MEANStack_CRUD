@@ -11,3 +11,5 @@ run ng serve command in VS code terminal in AngularApp folder
 TO START THE BACK-END:
 
 run nodemon index.js in cmd or terminal in NODEJS folder
+
+![image](https://user-images.githubusercontent.com/57839737/221910364-0e91a222-b0da-4770-b538-5d971be1843d.png)
